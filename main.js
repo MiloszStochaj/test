@@ -1,62 +1,53 @@
 fetch(`https://api.vatcomply.com/rates`)
   .then((response) => response.json())
   .then((data) => {
-    // console.log(data);
-    // const obj = data.rates;
-    // console.log(obj)
-    // const objArr = Object.values(obj);
-    // console.log(objArr);
+    const obj = data.rates;
 
-    // let arr = Object.keys(obj);
-    // console.log(arr);
+    const rate = Object.keys(obj);
+    const price = Object.values(obj);
 
-    
-      for (let [key, value] of Object.entries(data.rates)) {
-        const rates = new Object();
-        rates.rate = key;
-        rates.price = value;
-        console.log(rates);
+    let ids = Array.from(Array(32).keys());
 
+    // Create the object array
+    var items = ids.map((id, index) => {
+      return {
+        id: id,
+        rate: rate[index],
+        price: price[index],
+      };
+    });
 
-        function doSomething() {
-            console.log(Array.from(arguments));
-          }
-          doSomething(rates);
-        // console.log(key, value);
-      }
-    
+    console.log(items);
 
-   
-   
+    // let p = new Map(Object.entries(data.rates));
+    // console.log(p);
 
-    // for (i = 0; i <= arr.length - 1; i++) {
-    //   for (i = 0; i <= objArr.length - 1; i++) {
-    // function coin(rate, price){
-    //     return {
-    //         rate,
-    //         price,
-    //     }
-    // }
+    //   for (let [key, value] of Object.entries(data.rates)) {
+    //     const rates = new Object();
+    //     rates.rate = key;
+    //     rates.price = value;
+    //     console.log(rates);
 
-    // let Objectt = coin(arr[i], objArr[i])
-    // console.log(Object)
-    // for(i = 0; i <= 31; i++){
-    //     let c = []
-    //     c.push([i])
-    //     console.log(c);
-    // }
-
-    // const object = new Object();
-    // object.rate = arr[i];
-    // object.price = objArr[i];
-
-    // console.log(object);
-
-    // let c = new Array(10)
-    // c.push(object)
-    // console.log(c);
-
-    // console.log(data.base, arr[i], objArr[i])
+    // function doSomething() {
+    //     console.log(Array.from(arguments));
     //   }
+    //   doSomething(rates);
+    // console.log(key, value);
+    //   }
+
+    // function obb(){
+    //     for (i = 0; i <= arr.length - 1; i++) {
+    //         for (i = 0; i <= objArr.length - 1; i++) {
+
+    //       const object = new Object();
+    //       object.id = i+1;
+    //       object.rate = arr[i];
+    //       object.price = objArr[i];
+
+    //       console.log(object);
+
+    //         }
+    //       }
+
     // }
   });
