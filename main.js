@@ -9,7 +9,7 @@ fetch(`https://api.vatcomply.com/rates`)
     let ids = Array.from(Array(32).keys());
 
     // Create the object array
-    var items = ids.map((id, index) => {
+    let array = ids.map((id, index) => {
       return {
         id: id,
         rate: rate[index],
@@ -17,7 +17,7 @@ fetch(`https://api.vatcomply.com/rates`)
       };
     });
 
-    console.log(items);
+    console.log(array);
 
     // let p = new Map(Object.entries(data.rates));
     // console.log(p);
